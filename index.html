@@ -1,0 +1,139 @@
+<body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+   
+    
+
+    
+    <audio src="alert sound (1).mp3" id="3">
+      
+        
+    </audio>
+    
+    <img id="4" style="display: none; margin-left: 500px; width: 200px; height: 200px;" src="https://image.shutterstock.com/image-photo/hand-writing-times-up-movement-260nw-793329133.jpg" alt="">
+
+
+  <div class="row" style="align-self: center; align-content: center; text-align: center; margin-left: 600px; width:800px;">
+    <div class="col s12 m6">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://blog.hubstaff.com/wp-content/uploads/2017/10/work-timer.png">
+        
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+            <span style="" class="card-title">Timer -  <h5 id="2">00:00</h5></span>
+            <input type="number" id="1">
+            <button type="submit" onclick="Time()">Start</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<script>
+    function Time(){
+        let input1 = document.getElementById("1").value
+        let num = document.getElementById("2")
+        let audio = document.getElementById("3")
+        let img = document.getElementById("4")
+     
+        minutes = Math.floor(input1/60)
+            seconds = input1 % 60
+        newminutes = minutes*60
+    let Time = setInterval(time2,1000)
+
+    function time2()
+    {
+        if (input1>60){
+            
+            num.innerHTML = minutes+":"+seconds
+           if(seconds>1){ 
+            seconds-=1
+            num.innerHTML = minutes+":"+seconds
+        }
+            else {
+                
+                newminutes -=1
+                num.innerHTML =  newminutes 
+                if (newminutes==0){
+                    img.style.display="initial"
+                
+                
+ 
+
+                clearInterval(Time)
+                audio.play()
+                setTimeout(change,9000)
+                }
+                
+            }
+            
+        }
+        else{
+            num.innerHTML = input1
+            input1-=1
+            num.innerHTML = input1
+            if(input1==0){
+                img.style.display="initial"
+                
+                
+   
+
+                clearInterval(Time)
+                audio.play()
+                setTimeout(change,9000)
+            }
+        }
+
+    }      
+    function change(){
+        img.style.display = "none"
+        
+       
+    }  
+        
+   
+    }
+  
+</script>
+<style>
+    html {
+	height: 100%;
+	/* max-height: 600px; */
+	width: 1000px;
+	background-color: hsla(200,40%,30%,.4);
+	background-image:		
+		url('https://78.media.tumblr.com/cae86e76225a25b17332dfc9cf8b1121/tumblr_p7n8kqHMuD1uy4lhuo1_540.png'), 
+		url('https://78.media.tumblr.com/66445d34fe560351d474af69ef3f2fb0/tumblr_p7n908E1Jb1uy4lhuo1_1280.png'),
+		url('https://78.media.tumblr.com/8cd0a12b7d9d5ba2c7d26f42c25de99f/tumblr_p7n8kqHMuD1uy4lhuo2_1280.png'),
+		url('https://78.media.tumblr.com/5ecb41b654f4e8878f59445b948ede50/tumblr_p7n8on19cV1uy4lhuo1_1280.png'),
+		url('https://78.media.tumblr.com/28bd9a2522fbf8981d680317ccbf4282/tumblr_p7n8kqHMuD1uy4lhuo3_1280.png');
+	background-repeat: repeat-x;
+	background-position: 
+		0 20%,
+		0 100%,
+		0 50%,
+		0 100%,
+		0 0;
+	background-size: 
+		2500px,
+		800px,
+		500px 200px,
+		1000px,
+		400px 260px;
+	animation: 50s para infinite linear;
+	}
+
+@keyframes para {
+	100% {
+		background-position: 
+			-5000px 20%,
+			-800px 95%,
+			500px 50%,
+			1000px 100%,
+			400px 0;
+		}
+	}
+</style>
+</body>
